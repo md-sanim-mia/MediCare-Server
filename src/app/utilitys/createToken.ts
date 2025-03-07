@@ -1,10 +1,9 @@
 import jwt from "jsonwebtoken";
 const CreateToken = (
   jwtPayload: { email: string; role: string },
-  scrict: string,
-  expiresIn: number
+  scrict: string
 ) => {
-  jwt.sign(jwtPayload, scrict, { expiresIn: expiresIn });
+  return jwt.sign(jwtPayload, scrict, { expiresIn: "3d" });
 };
 
 export default CreateToken;

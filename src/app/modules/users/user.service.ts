@@ -1,9 +1,22 @@
+import { StatusCodes } from "http-status-codes";
+import { AppError } from "../../Error/AppError";
 import { TUser } from "./user.interface";
 import { User } from "./user.model";
+import CreateToken from "../../utilitys/createToken";
+import config from "../../config/config";
 
 const createUserForDb = async (paylood: TUser) => {
+  const isExistUser = await User.findOne({ email: paylood.email });
+  if (isExistUser) {
+    throw new AppError(StatusCodes.BAD_REQUEST, "user already exist");
+  }
   const result = await User.create(paylood);
-  return result;
+  const jwtPayload = {
+    email: result?.email,
+    role: result?.role,
+  };
+  const accessToken = CreateToken(jwtPayload, config.scrict_key as string);
+  return { accessToken };
 };
 const getAllUserForDb = async () => {
   const result = await User.find({}).select("-password");

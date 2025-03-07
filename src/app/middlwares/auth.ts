@@ -29,3 +29,5 @@ const auth = (...requireRole: string[]) => {
     next();
   });
 };
+
+export default auth;
