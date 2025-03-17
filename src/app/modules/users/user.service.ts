@@ -6,6 +6,7 @@ import CreateToken from "../../utilitys/createToken";
 import config from "../../config/config";
 
 const createUserForDb = async (paylood: TUser) => {
+  console.log(paylood);
   const isExistUser = await User.findOne({ email: paylood.email });
   if (isExistUser) {
     throw new AppError(StatusCodes.BAD_REQUEST, "user already exist");

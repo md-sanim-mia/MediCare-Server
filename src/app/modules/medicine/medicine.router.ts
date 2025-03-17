@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post(
   "/",
-  auth("admin"),
+  auth("user"),
   validationRequest(medicineValidation.createMedicineSchemaValidation),
   medicineContllors.createMedicine
 );

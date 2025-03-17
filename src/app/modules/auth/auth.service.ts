@@ -26,7 +26,6 @@ const logingForDb = async (paylood: TLoging) => {
   };
   const accessToken = CreateToken(jwtPayload, config.scrict_key as string);
 
-  console.log(accessToken);
   return { accessToken };
 };
 //--------------user upddated her password ------------

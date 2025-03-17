@@ -15,7 +15,7 @@ const moduleRouters = [
     route: authRouters,
   },
   {
-    path: "/medicine",
+    path: "/medicines",
     route: medicineRouter,
   },
 ];

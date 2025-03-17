@@ -2,6 +2,7 @@ import { TMedicine } from "./medicine.interface";
 import { Medicine } from "./medicine.model";
 
 const createMedicineForDb = async (paylood: TMedicine) => {
+  console.log(paylood);
   const result = await Medicine.create(paylood);
   return result;
 };

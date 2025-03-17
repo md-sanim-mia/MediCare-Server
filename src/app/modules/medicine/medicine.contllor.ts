@@ -2,6 +2,7 @@ import { asyncCatch } from "../../utilitys/async.catch";
 import { medicineServices } from "./medicine.service";
 
 const createMedicine = asyncCatch(async (req, res) => {
+  console.log(req.body);
   const result = await medicineServices.createMedicineForDb(req.body);
   res.status(200).json({
     success: true,

@@ -7,6 +7,7 @@ const createUser = asyncCatch(async (req, res) => {
   res.status(200).json({
     success: true,
     message: "user success fully created",
+    data: result,
   });
 });
 const getAllUser = asyncCatch(async (req, res) => {
