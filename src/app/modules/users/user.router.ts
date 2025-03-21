@@ -10,7 +10,7 @@ router.post(
   validationRequest(userValidation.createUserValidationSchema),
   userContllors.createUser
 );
-router.get("/", auth("admin"), userContllors.getAllUser);
+router.get("/", userContllors.getAllUser);
 router.get("/:userId", auth("user", "admin"), userContllors.getSingleUser);
 router.patch("/:userId", auth("user", "admin"), userContllors.updateSingleUser);
 router.delete("/:userId", auth("admin"), userContllors.deleteSingleUser);
